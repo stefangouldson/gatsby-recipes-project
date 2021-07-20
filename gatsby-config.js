@@ -5,6 +5,11 @@
  */
 
 module.exports = {
+  flags: {
+    DEV_SSR: false
+  },
   /* Your site config here */
-  plugins: [],
+  plugins: [
+    "gatsby-plugin-styled-components"
+  ],
 }
