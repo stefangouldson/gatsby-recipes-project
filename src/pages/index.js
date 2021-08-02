@@ -2,10 +2,12 @@ import React from "react"
 import Layout from "../components/Layout"
 import { StaticImage } from "gatsby-plugin-image"
 import AllRecipes from "../components/AllRecipes"
+import SEO from "../components/SEO"
 
 const Home = () => {
   return (
     <Layout>
+      <SEO title="Home" description="This is the home page" />
       <main className="page">
         <header className="hero">
           <StaticImage placeholder="tracedSVG" src="../assets/images/main.jpeg" layout="fullWidth" alt="food" className="hero-img" />

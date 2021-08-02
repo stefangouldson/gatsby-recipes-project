@@ -2,10 +2,17 @@ import React from "react"
 import Layout from "../components/Layout"
 import RecipesList from '../components/RecipesList'
 import { graphql } from 'gatsby'
+import SEO from "../components/SEO"
 
 const Contact = ({data:{allContentfulRecipe: {nodes: recipes}}}) => {
+  const submitForm = (e) => {
+    e.preventDefault()
+    alert('Thanks')
+  }
   return (
     <Layout>
+      <SEO title="Contact" />
+
       <main className="page">
         <section className="contact-page">
           <article>
@@ -21,18 +28,18 @@ const Contact = ({data:{allContentfulRecipe: {nodes: recipes}}}) => {
             </p>
           </article>
           <article>
-            <form className="form contact-form">
+            <form className="form contact-form" onSubmit={submitForm}>
               <div className="form-row">
                 <label htmlFor="name">Your Name</label>
-                <input type="text" name="name" id="name" />
+                <input refs="name" type="text" name="name" id="name" />
               </div>
               <div className="form-row">
                 <label htmlFor="email">Your Email</label>
-                <input type="text" name="email" id="email" />
+                <input refs="email" type="text" name="email" id="email" />
               </div>
               <div className="form-row">
                 <label htmlFor="message">Your Message</label>
-                <textarea name="message" id="message"></textarea>
+                <textarea refs="message" name="message" id="message"></textarea>
               </div>
               <button type="submit" className="btn block">Submit</button>
             </form>
