@@ -31,4 +31,25 @@ exports.createPages = async({graphql, actions}) => {
             })
         })
     })
+
+    const pagesResult = await graphql(`
+    query MyQuery {
+      allContentfulPages(filter: {node_locale: {eq: "en-US"}}) {
+        nodes {
+          title
+          slug
+        }
+      }
+    }
+    `)
+
+    pagesResult.data.allContentfulPages.nodes.forEach(page => {
+      createPage({
+        path: `/${page.slug}`,
+        component: path.resolve('src/templates/page-template.js'),
+        context: {
+            slug: page.slug
+        }
+    })
+    })
 }

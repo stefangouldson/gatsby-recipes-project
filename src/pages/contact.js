@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../components/Layout"
 import RecipesList from '../components/RecipesList'
 import { graphql } from 'gatsby'
-import SEO from "../components/SEO"
+import Seo from "../components/SEO"
 
 const Contact = ({data:{allContentfulRecipe: {nodes: recipes}}}) => {
   const submitForm = (e) => {
@@ -11,7 +11,7 @@ const Contact = ({data:{allContentfulRecipe: {nodes: recipes}}}) => {
   }
   return (
     <Layout>
-      <SEO title="Contact" />
+      <Seo title="Contact" />
 
       <main className="page">
         <section className="contact-page">
